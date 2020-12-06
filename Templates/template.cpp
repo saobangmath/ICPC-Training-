@@ -1,38 +1,63 @@
-#include<map>
-#include<set>
-#include<list>
-#include<stack>
-#include<array>
-#include<vector>
-#include<stdio.h>
-#include<iomanip>
-#include<iterator>
-#include<iostream>
-#include<assert.h>
-#include<algorithm>
-#include<unordered_map>
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+#define pb push_back
+#define all(x) x.begin(), x.end()
 
 using namespace std;
-/**
-* @author Tran Anh Tai
-*/
+using namespace __gnu_pbds;
 
-typedef set<int> si;
 typedef long long ll;
 typedef vector<int> vi;
 typedef pair<int, int> pii;
+typedef vector<pii> vii;
+typedef set<int> si;
 typedef map<string, int> msi;
+typedef tree<int,null_type,less<int>,rb_tree_tag,tree_order_statistics_node_update> pbds;
 
 #define rep(i, n) \
 for(int i = 0; i <n; i++)
+#define rRep(i, n) \
+for(int i = n-1; i>=0; i--)
 #define REP(i, a, b) \
 for(int i = int(a); i <= int(b); i++)
+#define bug(x) cerr << x << "\n";
 
-#define INF 2000000000
+//#define INF 2000000000
 
-int main() {
+#define MEMSET_INF 127
+#define MEMSET_HALF_INF 63
+/**
+ * @author anhtaitran
+ *
+ */
+
+template<class Fun>
+class y_combinator_result {
+    Fun fun_;
+public:
+    template<class T>
+    explicit y_combinator_result(T &&fun): fun_(std::forward<T>(fun)) {}
+
+    template<class ...Args>
+    decltype(auto) operator()(Args &&...args) {
+        return fun_(std::ref(*this), std::forward<Args>(args)...);
+    }
+};
+
+template<class Fun>
+decltype(auto) y_combinator(Fun &&fun) {
+    return y_combinator_result<std::decay_t<Fun>>(std::forward<Fun>(fun));
+}
+
+signed main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    cout << "Hello World!" << "\n";
     return 0;
 }
+
+// BE CONSISTENT (THINKING VERY CLEAR BEFORE CODING)
+// NOT STUCK ON ONE APPROACHES AND STAY ORGANIZED
+// DO SOMETHING INSTEAD OF NOTHING
+// SEEING A PROBLEM IN A GENERAL MANNER (OPEN MIND)
+
