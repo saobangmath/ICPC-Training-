@@ -2,57 +2,6 @@
 #define pb push_back
 using namespace std;
 
-void solveA(){
-    int  T; cin >> T;
-    while (T--){
-        int64_t a, b; cin >> a >> b;
-        if (a == b){
-            cout << 0 << " " << 0 << "\n";
-        }
-        else{
-            if (a < b) swap(a, b);
-            int64_t d = a-b;
-            cout << d << " " << min(a%d, d-a%d)<< "\n";
-        }
-    }
-}
-
-void solveB(){
-    int T; cin >> T;
-    while (T--){
-        int n; cin >> n;
-        int64_t sum = 0;
-        for (int i = 0; i < n; i++){
-            int a; cin >> a; sum += a;
-        }
-        int b = sum%n;
-        int a = n-b;
-        cout<<1LL*a*b<<"\n";
-    }
-}
-
-void solveD(){
-    int T; cin >> T;
-    while (T--){
-        int n, k; cin >> n >> k;
-        assert(k == 2);
-        int Xor = 0;
-        auto query = [](int num) -> bool{
-          cout << num << "\n";
-          int r; cin >> r;
-          return r == 1;
-        };
-        bool found = true;
-        for (int i = 0; i < n; i++){
-            if (query(Xor^i)){
-                //cout << (Xor^i) << "\n";
-                break;
-            }
-            Xor^=(Xor^i);
-        }
-    }
-}
-
 void solveC(){
     int T; cin >> T;
     using Double = long double;

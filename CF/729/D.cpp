@@ -144,9 +144,7 @@ int main(){
             Mint contrib = 0;
             for (int u=0;u<=n;u++){
                 contrib+=dp[n][u];
-                //cout << "i = " << i << " dp[" << n << "][" << u << "] = " << dp[n][u] << "\n";
             }
-            //cout<<ops[i-1].num << " " << contrib << "\n";
             ans+=contrib*ops[i-1].num;
         }
     }
